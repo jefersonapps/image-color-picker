@@ -31,10 +31,11 @@ O Image Color Picker é um aplicativo web que permite aos usuários extrair core
 
 ## Como Usar
 
-1. **Carregue uma imagem:** Arraste e solte uma imagem na área designada ou clique para selecionar uma do seu dispositivo ou ainda cole uma imagem da área de transferência.
-2. **Selecione uma cor:** Clique em qualquer ponto da imagem exibida para obter a cor nesse ponto. A cor selecionada será exibida abaixo da imagem, juntamente com seus valores RGB ou hexadecimais.
-3. **Visualize a paleta de cores:** Uma paleta de cores dominante será gerada automaticamente a partir da imagem carregada.
-4. **Amplie a imagem:** Clique no botão `VER DETALHES` para visualizar uma área ampliada, permitindo uma seleção de cores mais precisa.
+1. **Acesse o site:** https://pickimagecolor.vercel.app/
+2. **Carregue uma imagem:** Arraste e solte uma imagem na área designada ou clique para selecionar uma do seu dispositivo ou ainda cole uma imagem da área de transferência.
+3. **Selecione uma cor:** Clique em qualquer ponto da imagem exibida para obter a cor nesse ponto. A cor selecionada será exibida abaixo da imagem, juntamente com seus valores RGB ou hexadecimais.
+4. **Visualize a paleta de cores:** Uma paleta de cores dominante será gerada automaticamente a partir da imagem carregada.
+5. **Amplie a imagem:** Clique no botão `VER DETALHES` para visualizar uma área ampliada, permitindo uma seleção de cores mais precisa.
 
 ## Instalação e Execução (Desenvolvimento)
 
