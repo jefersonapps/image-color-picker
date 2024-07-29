@@ -8,8 +8,6 @@ import { Alert } from "./alert";
 import { CopiedColor } from "./copied-color";
 
 export function ColorPalette({ data }: { data: PaletteColors }) {
-  if (!data) return null;
-
   const searchParams = useSearchParams();
   const [copied, setCopied] = useState(false);
   const [colorKey, setColorKey] = useState("");
@@ -50,6 +48,8 @@ export function ColorPalette({ data }: { data: PaletteColors }) {
       }, 1000);
     }
   }
+
+  if (!data) return null;
 
   return (
     <div className="flex flex-col items-center gap-1 md:items-start">
