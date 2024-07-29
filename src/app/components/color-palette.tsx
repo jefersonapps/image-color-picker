@@ -1,11 +1,12 @@
 import { Copy } from "lucide-react";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { PaletteColors } from "react-palette";
 import { useSearchParams } from "next/navigation";
 import { ColorFormat } from "./color-info";
 import { hexToRgb } from "../utils/conversion";
 import { Alert } from "./alert";
 import { CopiedColor } from "./copied-color";
+import { Loading } from "./loading";
 
 export function ColorPalette({ data }: { data: PaletteColors }) {
   const searchParams = useSearchParams();
@@ -52,34 +53,36 @@ export function ColorPalette({ data }: { data: PaletteColors }) {
   if (!data) return null;
 
   return (
-    <div className="flex flex-col items-center gap-1 md:items-start">
-      <h2 className="font-semibold">Paleta de cores</h2>
-      <Alert
-        isActive={copied}
-        description={<CopiedColor color={data[colorKey]} />}
-      />
-      <div className="flex w-fit rounded-lg overflow-hidden">
-        {Object.entries(data).map(([key, color]) => (
-          <div key={key} className="relative">
-            <div
-              style={{
-                backgroundColor: color,
-              }}
-              className="size-12"
-            />
-            <button
-              title="Copiar"
-              onClick={() => copyColorToClipboard(key, color)}
-              className="absolute group inset-0 flex justify-center items-center bg-transparent hover:bg-black/50 transition-colors"
-            >
-              <Copy
-                data-copied={copied && key === colorKey}
-                className="invisible text-white group-hover:visible data-[copied=true]:visible data-[copied=true]:text-emerald-600 transition-colors"
+    <Suspense fallback={<Loading />}>
+      <div className="flex flex-col items-center gap-1 md:items-start">
+        <h2 className="font-semibold">Paleta de cores</h2>
+        <Alert
+          isActive={copied}
+          description={<CopiedColor color={data[colorKey]} />}
+        />
+        <div className="flex w-fit rounded-lg overflow-hidden">
+          {Object.entries(data).map(([key, color]) => (
+            <div key={key} className="relative">
+              <div
+                style={{
+                  backgroundColor: color,
+                }}
+                className="size-12"
               />
-            </button>
-          </div>
-        ))}
+              <button
+                title="Copiar"
+                onClick={() => copyColorToClipboard(key, color)}
+                className="absolute group inset-0 flex justify-center items-center bg-transparent hover:bg-black/50 transition-colors"
+              >
+                <Copy
+                  data-copied={copied && key === colorKey}
+                  className="invisible text-white group-hover:visible data-[copied=true]:visible data-[copied=true]:text-emerald-600 transition-colors"
+                />
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }

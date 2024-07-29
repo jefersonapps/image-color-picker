@@ -1,9 +1,10 @@
 import { Copy } from "lucide-react";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, Suspense, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Alert } from "./alert";
 import { CopiedColor } from "./copied-color";
+import { Loading } from "./loading";
 
 export interface Color {
   rgb: string;
@@ -32,31 +33,33 @@ function ColorHue({ label, color }: ColorHueProps) {
   }
 
   return (
-    <div className="flex gap-2 items-center">
-      <Alert isActive={copied} description={<CopiedColor color={color} />} />
-      <div
-        style={{ backgroundColor: color }}
-        className="size-10 rounded-md transition-colors flex-shrink-0"
-      ></div>
-      <div className="flex-1 text-ellipsis overflow-hidden">
-        <span className="font-bold whitespace-nowrap">{label}</span>
-      </div>
-
-      <div className="flex flex-1 justify-between gap-2">
-        <div className="w-40 text-center border border-zinc-200 rounded-md">
-          {color}
+    <Suspense fallback={<Loading />}>
+      <div className="flex gap-2 items-center">
+        <Alert isActive={copied} description={<CopiedColor color={color} />} />
+        <div
+          style={{ backgroundColor: color }}
+          className="size-10 rounded-md transition-colors flex-shrink-0"
+        ></div>
+        <div className="flex-1 text-ellipsis overflow-hidden">
+          <span className="font-bold whitespace-nowrap">{label}</span>
         </div>
 
-        <button
-          onClick={copyContent}
-          data-copied={copied}
-          className="text-white data-[copied=true]:text-emerald-600"
-          title="Copiar"
-        >
-          <Copy />
-        </button>
+        <div className="flex flex-1 justify-between gap-2">
+          <div className="w-40 text-center border border-zinc-200 rounded-md">
+            {color}
+          </div>
+
+          <button
+            onClick={copyContent}
+            data-copied={copied}
+            className="text-white data-[copied=true]:text-emerald-600"
+            title="Copiar"
+          >
+            <Copy />
+          </button>
+        </div>
       </div>
-    </div>
+    </Suspense>
   );
 }
 
