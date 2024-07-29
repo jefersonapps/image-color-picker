@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Image Color Picker
 
-## Getting Started
+<p align="center">
+  <img src="./public/icon.png" alt="Ícone do app - a imagem mostra um conta-gotas acima de uma paleta de cores" width="200" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="./public/screenshot.png" alt="Print do app" width="100%" />
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Sobre
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O Image Color Picker é um aplicativo web que permite aos usuários extrair cores de áreas específicas ou paletas de cores de imagens. Ele fornece uma maneira fácil de identificar e usar cores de qualquer imagem, tornando-o uma ferramenta útil para designers, artistas e qualquer pessoa que trabalhe com cores.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Carregue imagens de seu dispositivo ou cole uma imagem da área de transferência.
+- Visualize a imagem carregada em tela.
+- Clique em qualquer ponto da imagem para obter a cor nesse ponto.
+- Visualize a cor selecionada em formato RGB e hexadecimal.
+- Gere uma paleta de cores dominante da imagem.
+- Visualize na rota `/details` uma área ampliada da imagem para maior precisão na seleção de cores.
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js
+- React
+- TypeScript
+- Canvas API
+- Lucide React (ícones)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Como Usar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Carregue uma imagem:** Arraste e solte uma imagem na área designada ou clique para selecionar uma do seu dispositivo ou ainda cole uma imagem da área de transferência.
+2. **Selecione uma cor:** Clique em qualquer ponto da imagem exibida para obter a cor nesse ponto. A cor selecionada será exibida abaixo da imagem, juntamente com seus valores RGB ou hexadecimais.
+3. **Visualize a paleta de cores:** Uma paleta de cores dominante será gerada automaticamente a partir da imagem carregada.
+4. **Amplie a imagem:** Clique no botão `VER DETALHES` para visualizar uma área ampliada, permitindo uma seleção de cores mais precisa.
 
-## Deploy on Vercel
+## Instalação e Execução (Desenvolvimento)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone o repositório: `git clone https://github.com/jefersonapps/image-color-picker.git`
+2. Navegue até o diretório do projeto: `cd image-color-picker`
+3. Instale as dependências: `npm install`
+4. Inicie o servidor de desenvolvimento: `npm run dev`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir um problema ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT.
